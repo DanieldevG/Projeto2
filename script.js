@@ -51,26 +51,26 @@ async function loadCharacters(url) {
                 characterImage.className = "character-image"
 
                 const name = document.createElement("span")
-                name.className = "character-datails"
+                name.className = "character-details"
                 name.innerText = `Nome: ${character.name}`
 
                 const characterHeight = document.createElement("span")
-                characterHeight.className = "character-datails"
+                characterHeight.className = "character-details"
                 characterHeight.innerText = `Altura: ${convertHeight(character.height)}`
                
 
                 const mass = document.createElement("span")
-                mass.className = "character-datails"
+                mass.className = "character-details"
                 mass.innerText = `Peso: ${convertMass(character.mass)}`
 
                 const eyeColor = document.createElement("span")
-                eyeColor.className = "character-datails"
-                eyeColor.innerText = `Cor dos olhos: ${coverEyeColor( character.eye_color)}`
+                eyeColor.className = "character-details"
+                eyeColor.innerText = `Cor dos olhos: ${convertEyeColor( character.eye_color)}`
 
-                const birthYear = document.createElement("span")
-                birthYear.className = "character-datails"
+               const birthYear = document.createElement("span")
+               birthYear.className ="character-details"
                 birthYear.innerText = `Nascimento: ${convertBirthYear(character.birth_Year)}`
-                
+
                 modalContent.appendChild(characterImage)
                 modalContent.appendChild(name)
                 modalContent.appendChild(characterHeight)
@@ -85,8 +85,8 @@ async function loadCharacters(url) {
         const nextButton = document.getElementById("next-button")
         const backtButton = document.getElementById("back-button")
 
-        nextButton.disable = !responseJson.next
-        backtButton.disable = !responseJson.previous
+        nextButton.disabled = !responseJson.next
+        backtButton.disabled = !responseJson.previous
 
         backtButton.style.visibility = responseJson.previous? "visible" : "hidden"
 
@@ -129,12 +129,12 @@ async function loadPreviousPage() {
     }
 } 
 
-function hideModal(){
+function hideModal() {
     const modal = document.getElementById("modal")
-    modal.style.visibility = hidden 
+    modal.style.visibility = "hidden"
 }
 
-function  coverEyeColor(eyeColor){
+function  convertEyeColor(eyeColor){
     const cores = {
         blue: "azul",
         brown: "castanho",
